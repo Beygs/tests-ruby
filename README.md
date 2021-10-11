@@ -7,7 +7,7 @@
 
 ## Aperçu
 
-
+Projet Ruby pour apprendre à magner les tests ! Bonne correction !
 
 ## Small exercices in Ruby -- RSpec 3 Edition
 ==========
