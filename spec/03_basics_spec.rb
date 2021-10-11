@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 require_relative '../lib/03_basics'
 
 describe 'who is the biggest number' do
   # Hint: 'def who_is_bigger(a, b, c)'
   it 'tells me the biggest' do
-    expect(who_is_bigger(84, 42, nil)).to eq("nil detected")
-    expect(who_is_bigger(nil, 42, 21)).to eq("nil detected")
-    expect(who_is_bigger(84, 42, 21)).to eq("a is bigger")
-    expect(who_is_bigger(42, 84, 21)).to eq("b is bigger")
-    expect(who_is_bigger(42, 21, 84)).to eq("c is bigger")
-    
+    expect(who_is_bigger(84, 42, nil)).to eq('nil detected')
+    expect(who_is_bigger(nil, 42, 21)).to eq('nil detected')
+    expect(who_is_bigger(84, 42, 21)).to eq('a is bigger')
+    expect(who_is_bigger(42, 84, 21)).to eq('b is bigger')
+    expect(who_is_bigger(42, 21, 84)).to eq('c is bigger')
+
     # Tests bonus pour tester d'autres types de data
 
-    expect(who_is_bigger(23, "canapé", 13)).to eq("String detected")
-    expect(who_is_bigger(1000, 23, [1, 2, 3])).to eq("Array detected")
-    expect(who_is_bigger(true, 78, 45)).to eq("true detected")
-    expect(who_is_bigger(67, {a: 23, b: 128}, 90)).to eq("Hash detected")
+    expect(who_is_bigger(23, 'canapé', 13)).to eq('String detected')
+    expect(who_is_bigger(1000, 23, [1, 2, 3])).to eq('Array detected')
+    expect(who_is_bigger(true, 78, 45)).to eq('true detected')
+    expect(who_is_bigger(67, { a: 23, b: 128 }, 90)).to eq('Hash detected')
   end
 end
 
@@ -22,12 +24,12 @@ describe 'crazy stuff on strings' do
   # Reverse, upcase then removes all L, T and A.
   # Hint: google ruby string
   it 'does crazy stuff on strings' do
-    expect(reverse_upcase_noLTA("Tries this at Home, Kids"))
-      .to eq("SDIK ,EMOH  SIH SEIR")
-    expect(reverse_upcase_noLTA("Ponies loves carrots"))
-      .to eq("SORRC SEVO SEINOP")
-    expect(reverse_upcase_noLTA("qwertyuiopasdfghjkl;zxcvbn"))
-      .to eq("NBVCXZ;KJHGFDSPOIUYREWQ")
+    expect(reverse_upcase_noLTA('Tries this at Home, Kids'))
+      .to eq('SDIK ,EMOH  SIH SEIR')
+    expect(reverse_upcase_noLTA('Ponies loves carrots'))
+      .to eq('SORRC SEVO SEINOP')
+    expect(reverse_upcase_noLTA('qwertyuiopasdfghjkl;zxcvbn'))
+      .to eq('NBVCXZ;KJHGFDSPOIUYREWQ')
   end
 
   # Tests bonus sur d'autres types de data
@@ -35,10 +37,9 @@ describe 'crazy stuff on strings' do
   it 'Throws an error if the argument is not a string' do
     expect(reverse_upcase_noLTA(3)).to eq("3 n'est pas un argument valide !")
     expect(reverse_upcase_noLTA(false)).to eq("false n'est pas un argument valide !")
-    expect(reverse_upcase_noLTA(["bonjour", "ça va ?"])).to eq('["bonjour", "ça va ?"] n\'est pas un argument valide !')
+    expect(reverse_upcase_noLTA(['bonjour', 'ça va ?'])).to eq('["bonjour", "ça va ?"] n\'est pas un argument valide !')
   end
 end
-
 
 describe '42 finder' do
   # array_42 takes an array as parameter and returns:
@@ -47,11 +48,10 @@ describe '42 finder' do
   # Hint: Should be 2 lines (and can be one :)
   # Hint: google ruby array each
   it 'finds 42' do
-    expect(array_42([1, 2, 3, 4, 5, 6, 7 , 8, 9, 10])).to eq false
-    expect(array_42([1, 2, 3, 4, 5, 6, 7 , 8, 9, 42, 21, 10.5])).to eq true
+    expect(array_42([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to eq false
+    expect(array_42([1, 2, 3, 4, 5, 6, 7, 8, 9, 42, 21, 10.5])).to eq true
   end
 end
-
 
 describe 'crazy stuff on arrays' do
   # The magic_array function takes an array of number or an array of

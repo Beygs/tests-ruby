@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def echo(str)
   str
 end
@@ -19,5 +21,11 @@ def first_word(str)
 end
 
 def titleize(str)
-  str.split.each_with_index.map{|w, i| i == 0 ? w.capitalize : w.length > 3 ? w.capitalize : w}.join(" ")
+  str.split.each_with_index.map do |w, i|
+    if i.zero?
+      w.capitalize
+    else
+      w.length > 3 ? w.capitalize : w
+    end
+  end.join(' ')
 end

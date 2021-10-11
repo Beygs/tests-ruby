@@ -1,33 +1,33 @@
-def who_is_bigger(a, b, c)
-  begin
+# frozen_string_literal: true
 
-    result = [a, b, c].index([a, b, c].max)
+def who_is_bigger(num_a, num_b, num_c)
+  result = [num_a, num_b, num_c].index([num_a, num_b, num_c].max)
 
-    return "#{result == 0 ? "a" : result == 1 ? "b" : "c"} is bigger"
-
-  rescue => e
-
-    invalidArgument = e.message.match(/comparison of (Integer|\w+) with (\d+|\w+) failed/).to_a
-    invalidArgument = invalidArgument[1] != "Integer" ? invalidArgument[1] : invalidArgument[2]
-    if invalidArgument == "NilClass" then invalidArgument = "nil" end
-
-    return "#{invalidArgument} detected"
-
+  case result
+  when 0 then result = 'a'
+  when 1 then result = 'b'
+  when 2 then result = 'c'
   end
+
+  "#{result} is bigger"
+rescue StandardError => e # Si j'ai une erreur (mes variables ne sont pas des Integer)
+  invalid_argument = e.message.match(/comparison of (Integer|\w+) with (\d+|\w+) failed/).to_a
+  invalid_argument = invalid_argument[1] != 'Integer' ? invalid_argument[1] : invalid_argument[2]
+  invalid_argument = 'nil' if invalid_argument == 'NilClass'
+
+  "#{invalid_argument} detected"
 end
 
 def reverse_upcase_noLTA(str)
-  begin
-    str.reverse.upcase.gsub(/[LTA]/, "")
-  rescue
-    "#{str} n'est pas un argument valide !"
-  end
+  str.reverse.upcase.gsub(/[LTA]/, '')
+rescue StandardError
+  "#{str} n'est pas un argument valide !"
 end
 
 def array_42(arr)
   arr.include?(42)
 end
 
-def magic_array(a)
-  a.flatten.sort.map{|n|n*2}.select{|n|n%3!=0}.uniq # 49 caractères !
+def magic_array(arr)
+  arr.flatten.sort.map { |n| n * 2 }.reject { |n| (n % 3).zero? }.uniq
 end

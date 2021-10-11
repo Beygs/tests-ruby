@@ -1,23 +1,26 @@
-def add(n1, n2)
-  n1 + n2
+# frozen_string_literal: true
+
+def add(num1, num2)
+  num1 + num2
 end
 
-def subtract(n1, n2)
-  n1 - n2
+def subtract(num1, num2)
+  num1 - num2
 end
 
 def sum(arr)
+  # inject me permet d'additionner tous les éléments du tableau, le premier argument est la valeur par défaut
   arr.inject(0, :+)
 end
 
-def multiply(n1, n2)
-  n1 * n2
+def multiply(num1, num2)
+  num1 * num2
 end
 
-def power(n1, n2)
-  n1 ** n2
+def power(num1, num2)
+  num1**num2
 end
 
-def factorial(n)
-  (1..n).inject(1, :*)
+def factorial(num)
+  (1..num).inject(1, :*)
 end
